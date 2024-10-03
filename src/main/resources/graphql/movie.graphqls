@@ -1,0 +1,41 @@
+type Movie {
+    id: ID!
+    age_certification: String
+    description: String
+    genres: [String]
+    imdb_score: Float
+    production_countries: [String]
+    release_year: Int
+    runtime: Float
+    title: String
+    type: String
+}
+
+type Query {
+    getAllMovies: [Movie]
+    getMovieByTitle(title: String!): [Movie]
+}
+
+type Mutation {
+    addMovie(
+        age_certification: String,
+        description: String,
+        genres: [String],
+        imdb_score: Float,
+        production_countries: [String],
+        release_year: Int,
+        runtime: Float,
+        title: String,
+        type: String
+    ): Movie
+
+    updateMovies(
+        description: String,
+        genres: [String],
+        imdb_score: Float,
+        runtime: Float,
+        title: String,
+    ): [Movie]
+
+    deleteMovie(title: String): String
+}
